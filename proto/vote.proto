@@ -1,3 +1,17 @@
 syntax = "proto3";
 package pb;
-option go_package = "internal/pb"
+option go_package = "internal/pb";
+
+message Vote {
+    string ipAddress = 1;
+    string userAgent = 2;
+    string optionId = 3;
+}
+
+message VoteResponse {
+    string voteID = 1;   
+}
+
+service VoteService {
+    rpc ComputeVote(Vote) returns (VoteResponse) {}
+}   
