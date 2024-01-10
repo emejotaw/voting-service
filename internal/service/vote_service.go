@@ -37,5 +37,7 @@ func (s *VoteService) ComputeVote(ctx context.Context, vote *pb.Vote) (*pb.VoteR
 		return nil, err
 	}
 
-	return &pb.VoteResponse{}, nil
+	return &pb.VoteResponse{
+		VoteID: v.ID,
+	}, nil
 }
